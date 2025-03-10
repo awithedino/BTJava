@@ -1,11 +1,10 @@
 package Home.BTVN.w06.Ex2;
 
-public abstract class Point2D {
+public class Point2D {
     private double x;
     private double y;
 
-    public Point2D(double x, double y)
-    {
+    public Point2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -39,15 +38,12 @@ public abstract class Point2D {
         return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 
-    public double distanceTwoPoint (Point2D other)
-    {
+    public double distanceTwoPoint(Point2D other) {
         return Math.hypot(other.x - this.x, other.y - this.y);
     }
 
-    public void move (double dx, double dy) {
+    public void move(double dx, double dy) {
         this.x += dx;
         this.y += dy;
     }
-
-    public abstract double distanceTwoPoint(Point3D other);
 }
