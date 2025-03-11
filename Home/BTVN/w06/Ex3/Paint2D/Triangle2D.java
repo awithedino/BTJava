@@ -46,7 +46,7 @@ public class Triangle2D implements IShapeO, IShapeT {
 
     @Override
     public String toString() {
-        return STR."Triangle2D [c = \{c}, a = \{a}, b = \{b}, c = \{c}]";
+        return STR."Triangle2D [O = \{o}, a = \{a}, b = \{b}, c = \{c}]";
     }
 
     @Override

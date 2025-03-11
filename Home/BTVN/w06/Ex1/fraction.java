@@ -1,7 +1,7 @@
 package Home.BTVN.w06.Ex1;
 import java.lang.Math.*;
 
-public class fraction {
+public class fraction implements Comparable<fraction> {
     private int ts;
     private int ms;
 
@@ -57,5 +57,12 @@ public class fraction {
     public String toString() {
         if (ms == 1) return STR."\{ts}";
         return STR."\{ts}/\{ms}";
+    }
+
+    @Override
+    public int compareTo(fraction o) {
+        int left = this.ts * o.ms;
+        int right = o.ts * this.ms;
+        return Integer.compare(left, right);
     }
 }
