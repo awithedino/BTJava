@@ -2,6 +2,7 @@ package Home.BTVN.w06.Ex3;
 
 import Class.w06.Paint2D.*;
 
+
 public class mainTest {
     public static void printList(IShapeT[] list) {
         for (IShapeT shape : list) {
@@ -90,5 +91,4 @@ public class mainTest {
         System.out.println();
         printList(reratioShapes(list, 3.8));
     }
-
 }

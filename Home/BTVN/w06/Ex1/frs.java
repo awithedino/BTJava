@@ -14,7 +14,6 @@ public class frs {
     }
 
     public fraction findMax() {
-        double max = Double.MIN_VALUE;
         if (fractions.isEmpty()) {
             return null;
         }
