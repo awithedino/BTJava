@@ -51,4 +51,10 @@ public class Cmpl implements Comparable<Cmpl>{
         double right = other.modCmpl();
         return Double.compare(left, right);
     }
+
+    public Cmpl mulCmpl (Cmpl other) {
+        double a1 = this.getInte() * other.getInte() - this.getComp() * other.getComp();
+        double a2 = this.getInte() * other.getComp() + this.getComp() * other.getInte();
+        return new Cmpl(a1, a2);
+    }
 }

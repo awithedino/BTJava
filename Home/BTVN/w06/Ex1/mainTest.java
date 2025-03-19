@@ -36,5 +36,8 @@ public class mainTest {
 
         int nonIntegerCount = list.countNonInt();
         System.out.println(STR." Number of non-integer fractions: \{nonIntegerCount}");
+
+        int TSlargerMS = list.countTslargerMs();
+        System.out.println(STR."Number of fractions which has TS larger than MS: \{TSlargerMS}");
     }
 }

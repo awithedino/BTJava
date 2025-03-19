@@ -47,4 +47,14 @@ public class frs {
         }
         return count;
     }
+
+    public int countTslargerMs() {
+        int count = 0;
+        for (fraction fraction : fractions) {
+            if (fraction.getTs() > fraction.getMs()) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

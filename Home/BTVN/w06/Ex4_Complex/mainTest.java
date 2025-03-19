@@ -2,11 +2,11 @@ package Home.BTVN.w06.Ex4_Complex;
 
 public class mainTest {
     public static void main(String[] args) {
-        Cmpl c1 = new Cmpl(3, 4);
-        Cmpl c2 = new Cmpl(1, -2);
-        Cmpl c3 = new Cmpl(-5, 6);
-        Cmpl c4 = new Cmpl(7, 0);
-        Cmpl c5 = new Cmpl(0, -3);
+        Cmpl c1 = new Cmpl(-1, 3);
+        Cmpl c2 = new Cmpl(2, -5);
+        Cmpl c3 = new Cmpl(-3, -7);
+//        Cmpl c4 = new Cmpl(7, 0);
+//        Cmpl c5 = new Cmpl(0, -3);
 
         System.out.println("\nAddition Test:");
         System.out.println(STR."\{c1} + \{c2} = \{c1.addCmpl(c2)}");
@@ -19,8 +19,8 @@ public class mainTest {
         listCmpl.addCmpl(c1);
         listCmpl.addCmpl(c2);
         listCmpl.addCmpl(c3);
-        listCmpl.addCmpl(c4);
-        listCmpl.addCmpl(c5);
+//        listCmpl.addCmpl(c4);
+//        listCmpl.addCmpl(c5);
 
         System.out.println("\nComplex Number Collection:");
         listCmpl.printCmpls();
@@ -33,5 +33,8 @@ public class mainTest {
 
         System.out.println("\nCount of Non-Complex (Real) Numbers:");
         System.out.println(listCmpl.countNonCmpl());
+
+        Cmpl S = c1.addCmpl(c2.mulCmpl(c3));
+        System.out.println(STR."Value of S: \{S}");
     }
 }

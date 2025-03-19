@@ -11,7 +11,11 @@ public class fraction implements Comparable<fraction> {
     }
 
     public fraction (int ts, int ms) {
-        if (ms == 0) System.out.println("Mau so khong hop le");
+        if (ms == 0) {
+            this.ts = 1;
+            this.ms = 1;
+            smpfy();
+        }
         else {
             this.ms = ms;
             this.ts = ts;

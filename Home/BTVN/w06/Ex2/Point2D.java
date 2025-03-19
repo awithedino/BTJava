@@ -1,5 +1,7 @@
 package Home.BTVN.w06.Ex2;
 
+import java.awt.*;
+
 public class Point2D {
     private double x;
     private double y;
@@ -46,4 +48,21 @@ public class Point2D {
         this.x += dx;
         this.y += dy;
     }
+
+    public void isOnOx() {
+        if (this.y == 0)
+        {
+            System.out.println(STR."This point is on Ox axis.");
+        }
+    }
+
+    public double perimeter(Point2D[] list) {
+        double sum = 0;
+        for (int i = 1; i < list.length; i++) {
+            sum += (list[i-1]).distanceTwoPoint(list[i]);
+        }
+        sum += list[list.length - 1].distanceTwoPoint(list[0]);
+        return sum;
+    }
+
 }
