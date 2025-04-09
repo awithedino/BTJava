@@ -1,4 +1,5 @@
-package Home.BTVN.w06.Sudoku.src;
+package Home.BTVN.Sudoku.src;
+
 import java.util.Scanner;
 
 public class Main {
@@ -13,14 +14,25 @@ public class Main {
         game.OutputLevel();
 
         while (true) {
-            System.out.print("Continue playing? (y/n): ");
-            String choice = scanner.next();
-            if (choice.equalsIgnoreCase("n")) break;
+            System.out.print("Choose action (move/undo/redo/hint/quit): ");
+            String action = scanner.next();
 
-            playerInput(game.getBoard(), scanner);
-            game.OutputLevel();
+            switch (action.toLowerCase()) {
+                case "move" -> {
+                    game.saveState();
+                    playerInput(game.getBoard(), scanner);
+                    game.OutputLevel();
+                }
+                case "undo" -> game.undo();
+                case "redo" -> game.redo();
+                case "hint" -> game.giveHint();
+                case "quit" -> {
+                    System.out.println("Game Over!");
+                    return;
+                }
+                default -> System.out.println("Invalid option!");
+            }
         }
-        System.out.println("Game Over!");
     }
 
     private static void playerInput(int[][] board, Scanner scanner) {

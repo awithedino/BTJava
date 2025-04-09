@@ -1,10 +1,14 @@
-package Home.BTVN.w06.Sudoku.src;
+package Home.BTVN.Sudoku.src;
+
+import java.util.Stack;
 import java.util.Random;
 
 public class Game {
     private static final int SIZE = 9;
     private int[][] board;
     private Random rand;
+    private Stack<int[][]> undoStack = new Stack<>();
+    private Stack<int[][]> redoStack = new Stack<>();
 
     public Game() {
         board = new int[SIZE][SIZE];
@@ -96,5 +100,53 @@ public class Game {
 
     public int[][] getBoard() {
         return board;
+    }
+
+    public void saveState() {
+        int[][] snapshot = new int[SIZE][SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            System.arraycopy(board[i], 0, snapshot[i], 0, SIZE);
+        }
+        undoStack.push(snapshot);
+        redoStack.clear();
+    }
+
+    public boolean undo() {
+        if (undoStack.isEmpty()) return false;
+        redoStack.push(copyBoard());
+        board = undoStack.pop();
+        OutputLevel();
+        return true;
+    }
+
+    public boolean redo() {
+        if (redoStack.isEmpty()) return false;
+        undoStack.push(copyBoard());
+        board = redoStack.pop();
+        OutputLevel();
+        return true;
+    }
+
+    private int[][] copyBoard() {
+        int[][] copy = new int[SIZE][SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            System.arraycopy(board[i], 0, copy[i], 0, SIZE);
+        }
+        return copy;
+    }
+
+    public void giveHint() {
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
+                if (board[row][col] == 0) {
+                    int[][] backup = copyBoard();
+                    solve(backup);
+                    board[row][col] = backup[row][col];
+                    System.out.printf("Hint: cell (%d,%d) -> %d\n", row, col, backup[row][col]);
+                    return;
+                }
+            }
+        }
+        System.out.println("No empty cells for hint.");
     }
 }

@@ -1,4 +1,5 @@
-package Home.BTVN.w06.Sudoku.src;
+package Home.BTVN.Sudoku.src;
+
 public class Check {
     public static boolean isValidMove(int x, int[][] board, int row, int col) {
         return CheckRows(x, board, row) && CheckCols(x, board, col) && CheckZone(x, board, row, col);
