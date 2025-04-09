@@ -1,6 +1,8 @@
 package Home.BTVN.w06.Ex3.Paint2D;
 
-public class Line2D implements IShapeO, IShapeT{
+import java.awt.*;
+
+public class Line2D implements IShape{
     private Point2D c1, c2;
 
     public Line2D (Point2D c1, Point2D c2) {
@@ -63,4 +65,17 @@ public class Line2D implements IShapeO, IShapeT{
             c2.setX(c1.getX() + ratio * (c2.getX() - c1.getX()));
             c2.setY(c1.getY() + ratio * (c2.getY() - c1.getY()));
     }
+
+    @Override
+    public IShape getCenter() {
+        double dx = (c1.getX() + c2.getX()) / 2;
+        double dy = (c1.getY() + c2.getY()) / 2;
+        return new Point2D(dx, dy);
+    }
+
+    @Override
+    public IShape getBoundary() {
+        return this;
+    }
+
 }

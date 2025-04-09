@@ -1,6 +1,6 @@
 package Home.BTVN.w06.Ex3.Paint2D;
 
-public class Point2D implements IShapeO, IShapeT{
+public class Point2D implements IShape{
     private double x;
     private double y;
 
@@ -56,5 +56,22 @@ public class Point2D implements IShapeO, IShapeT{
 
     public void zoom (double ratio) {
         return;
+    }
+
+    @Override
+    public IShape getCenter() {
+        return this;
+    }
+
+    @Override
+    public IShape getBoundary() {
+        return this;
+    }
+
+    // Additional function
+    public double distance(Point2D p) {
+        double dx = (this.x - p.x) * (this.x - p.x);
+        double dy = (this.y - p.y) * (this.y - p.y);
+        return Math.sqrt(dx + dy);
     }
 }

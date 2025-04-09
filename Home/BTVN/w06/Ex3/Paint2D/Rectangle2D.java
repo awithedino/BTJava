@@ -1,6 +1,6 @@
 package Home.BTVN.w06.Ex3.Paint2D;
 
-public class Rectangle2D implements IShapeO, IShapeT {
+public class Rectangle2D implements IShape {
     private Point2D c;
     private double a, b;
 
@@ -69,5 +69,15 @@ public class Rectangle2D implements IShapeO, IShapeT {
     public void zoom(double ratio) {
         this.a *= ratio;
         this.b *= ratio;
+    }
+
+    @Override
+    public IShape getCenter() {
+        return null;
+    }
+
+    @Override
+    public IShape getBoundary() {
+        return null;
     }
 }

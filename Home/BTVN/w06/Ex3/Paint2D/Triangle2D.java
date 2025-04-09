@@ -1,6 +1,6 @@
 package Home.BTVN.w06.Ex3.Paint2D;
 
-public class Triangle2D implements IShapeO, IShapeT {
+public class Triangle2D implements IShape {
     private Point2D o;
     private double a, b, c;
 
@@ -80,5 +80,15 @@ public class Triangle2D implements IShapeO, IShapeT {
         this.a *= ratio;
         this.b *= ratio;
         this.c *= ratio;
+    }
+
+    @Override
+    public IShape getCenter() {
+        return null;
+    }
+
+    @Override
+    public IShape getBoundary() {
+        return null;
     }
 }

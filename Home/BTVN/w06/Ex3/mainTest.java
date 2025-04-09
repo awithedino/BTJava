@@ -1,32 +1,31 @@
 package Home.BTVN.w06.Ex3;
 
-import Class.w06.Paint2D.*;
-
+import Home.BTVN.w06.Ex3.Paint2D.*;
 
 public class mainTest {
-    public static void printList(IShapeT[] list) {
-        for (IShapeT shape : list) {
+    public static void printList(IShape[] list) {
+        for (IShape shape : list) {
             System.out.println(shape);
         }
     }
 
-    public static double CalcListPara (IShapeT[] list) {
+    public static double CalcListPara (IShape[] list) {
         double sum = 0.0;
-        for (IShapeT shape : list) {
-            sum += ((IShapeO) shape).perimeter();
+        for (IShape shape : list) {
+            sum += shape.perimeter();
         }
         return sum;
     }
 
-    public static double CalcListArea (IShapeT[] list) {
+    public static double CalcListArea (IShape[] list) {
         double sum = 0.0;
-        for (IShapeT shape : list) {
-            sum += ((IShapeO) shape).area();
+        for (IShape shape : list) {
+            sum += shape.area();
         }
         return sum;
     }
 
-    public static void MinMaxArea(IShapeT[] list) {
+    public static void MinMaxArea(IShape[] list) {
         if (list.length == 0) {
             System.out.println("There is no shapes in the list.");
             return;
@@ -37,8 +36,8 @@ public class mainTest {
         double area = 0.0;
         String maxShape = "", minShape = "", shapeName = "";
 
-        for (IShapeT shape : list) {
-            area = ((IShapeO)shape).area();
+        for (IShape shape : list) {
+            area = shape.area();
             shapeName = shape.getClass().getSimpleName();
 
             if (area <= 0) continue;
@@ -58,15 +57,15 @@ public class mainTest {
         System.out.println(STR."Shape with the smallest area is \{minShape} with the area of \{min}");
     }
 
-    public static IShapeT[] reratioShapes (IShapeT[] list, double ratio) {
-        for (IShapeT shape : list) {
+    public static IShape[] reratioShapes (IShape[] list, double ratio) {
+        for (IShape shape : list) {
             shape.zoom(ratio);
         }
         return list;
     }
 
     public static void main(String[] args) {
-        IShapeT[] list = {
+        IShape[] list = {
                 new Point2D(10, 10),
                 new Point2D(5, 20),
                 new Circle2D(new Point2D(-10, 2), 6),

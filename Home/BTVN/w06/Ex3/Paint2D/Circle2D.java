@@ -1,6 +1,6 @@
 package Home.BTVN.w06.Ex3.Paint2D;
 
-public class Circle2D implements IShapeO, IShapeT{
+public class Circle2D implements IShape{
     private Point2D c;
     private double r;
 
@@ -59,5 +59,15 @@ public class Circle2D implements IShapeO, IShapeT{
     @Override
     public void zoom(double ratio) {
         this.r *= ratio;
+    }
+
+    @Override
+    public IShape getCenter() {
+        return this;
+    }
+
+    @Override
+    public IShape getBoundary() {
+        return this;
     }
 }
